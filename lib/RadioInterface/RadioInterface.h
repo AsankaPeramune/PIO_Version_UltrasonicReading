@@ -15,7 +15,14 @@ public:
     RadioInterface(HardwareSerial &serial, uint8_t rxPin, uint8_t txPin, uint32_t baud);
 
     void init();
-    void sendDistance(uint16_t distance_mm);
+
+    void sendLine(const char *msg);
+    void sendDistance(const char *id, uint16_t distance);
+    void sendLevel(const char *id, int level);
+    void sendRef(const char *id, int ref);
+
+    bool available();
+    char read();
 };
 
 #endif
